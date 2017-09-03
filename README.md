@@ -2,6 +2,11 @@
 
 [//]: # (Image References)
 [modelstate]: ./img/modelstate.JPG
+[cte]: ./img/cte.JPG
+[cte1]: ./img/cte1.JPG
+[actuators]: ./img/actuators.JPG
+[orientationerror]: ./img/orientationerror.JPG
+[finalmodel]: ./img/finalmodel.JPG
 
 
 ## Introduction  
@@ -36,4 +41,26 @@ There are some considrations to take into account by the MPC Controller to ensur
 
 ## Vehicle Model
 ![Model State][modelstate]
+
+### Cross Track Error (Cte)
+
+The cross-track error is the difference between the reference trajectory and the current vehicle's position. The point in the path closest to the current position at time t is f(x), the error at time t is:
+
+![CTE][cte]
+
+where f(x) is the output of the polynomial that best fit the waypoints at point x (x-value of the current position, which in vehicle coordinates is 0). cte is the initial error
+
+The cross track error at time t+1 is :
+
+![CTE1][cte1]
+
+### Orientation Error
+![Orientation Error][orientationerror]
+
+### Final Model
+![Final Model][finalmodel]
+
+### Actuators
+![Actuators][actuators]
+
 
