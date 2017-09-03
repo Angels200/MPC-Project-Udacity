@@ -1,7 +1,7 @@
 # MPC-Project-Udacity
 
 [//]: # (Image References)
-[modelstate]: ./img/modelstate.jpg
+[modelstate]: ./img/modelstate.JPG
 
 
 ## Introduction  
@@ -35,5 +35,5 @@ There are some considrations to take into account by the MPC Controller to ensur
     3. Make the prediction horizon (T= N*dt) small to inform the solver matching the reference trajectory fastly (continuously)
 
 ## Vehicle Model
-*
+![Model State][modelstate]
 
