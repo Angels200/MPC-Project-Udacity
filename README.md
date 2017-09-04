@@ -40,9 +40,12 @@ There are some considrations to take into account by the MPC Controller to ensur
     3. Make the prediction horizon (T= N*dt) small to inform the solver matching the reference trajectory fastly (continuously)
 
 ## Vehicle Model
+
+### 1.State Model
+
 ![Model State][modelstate]
 
-### Cross Track Error (Cte)
+### 2.Cross Track Error (Cte)
 
 The cross-track error is the difference between the reference trajectory and the current vehicle's position. The point in the path closest to the current position at time t is f(x), the error at time t is:
 
@@ -54,13 +57,29 @@ The cross track error at time t+1 is :
 
 ![CTE1][cte1]
 
-### Orientation Error
+### 3.Orientation Error
+
 ![Orientation Error][orientationerror]
 
-### Final Model
+### 4.Final Model
+
 ![Final Model][finalmodel]
 
-### Actuators
+### 5.Actuators
+
 ![Actuators][actuators]
+
+### 6.Cost Function
+
+Cost  = Sum_i cte(i)^2 
+              + epsi(i)^2 
+              + (v(i)-v_ref)^2 + delta(i)^2 
+              + 10 a(i)^2 
+              + 600 [delta(i+1)-delta(i)] 
+              + [a(i+1)-a(i)]
+              
+
+
+
 
 
