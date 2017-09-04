@@ -7,11 +7,12 @@
 [actuators]: ./img/actuators.JPG
 [orientationerror]: ./img/orientationerror.JPG
 [finalmodel]: ./img/finalmodel.JPG
+[Simulator]: ./img/Simulation.png
 
 
 ## Introduction  
 
-The purpose of this project is to implement an MPC Controller for to provide an autonomous driven vehicle simulator with actuators' commands in real time. The simulator sends in real time, by telemetry through IP/TPC protocol, a part of the vehicle state component:
+The purpose of this project is to implement an MPC Controller to provide an autonomous driven vehicle simulator with actuators' commands in real time. The simulator sends, by telemetry and through IP/TPC protocol, a part of the vehicle state component:
 
     1.position (x,y)
     2.orientation (psi)
@@ -30,6 +31,9 @@ and the waypoints (the desired trajectory). On the other side the MPC Controller
     10.Go to 1 (Repeat the process)
     
     And sends back the simulator best optimized values of the steering angle and throttle.
+    
+    ![Simulator][Simulation]
+    
     
 ## Considerations 
 
