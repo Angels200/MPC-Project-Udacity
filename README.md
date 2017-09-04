@@ -7,8 +7,10 @@
 [actuators]: ./img/actuators.JPG
 [orientationerror]: ./img/orientationerror.JPG
 [finalmodel]: ./img/finalmodel.JPG
-[Simulator]: ./img/Simulation.png
+[simulator]: ./img/Simulation.png
 
+
+![Simulation][simulator]
 
 ## Introduction  
 
@@ -31,9 +33,6 @@ and the waypoints (the desired trajectory). On the other side the MPC Controller
     10.Go to 1 (Repeat the process)
     
     And sends back the simulator best optimized values of the steering angle and throttle.
-    
-    ![Simulator][Simulation]
-    
     
 ## Considerations 
 
