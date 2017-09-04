@@ -34,6 +34,8 @@ and the waypoints (the desired trajectory). On the other side the MPC Controller
     
     And sends back the simulator best optimized values of the steering angle and throttle.
     
+    For a full simulation, find the video in the Video folder
+    
 ## Considerations 
 
 There are some considrations to take into account by the MPC Controller to ensure the best results 
