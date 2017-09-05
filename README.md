@@ -83,7 +83,37 @@ Cost  = Sum_i cte(i)^2
               + 600 [delta(i+1)-delta(i)] 
               + [a(i+1)-a(i)]
               
+## Discussions
 
+### 1.Timestep Length &  Duration
+
+I use for length and duration a classical approach of testing. So, the test set contains input values (N, dt) and output represented by textual observation. Several values were tested for N and dt to determine the best driven behavior. The following table reports the test set components :
+
+| Length (N) | Duration (dt) | Observation |
+|------------|---------------|-------------|
+| 20 | .03  |  The vehicle crashes few seconds after the start and some oscillations|
+| 20 | .06   | The vehicle drives with weak oscillations until the first turn after the bridge  and crashes |
+| 20 |  .08|  The vehicle drives straight following the central line and crashes at the first turn before the bridge |
+| 15 | 0.07 | The vehicle drives straight following the central line and crashes at the first turn before the bridge |
+|15|.04| The vehicle drives fine until the bridge where it crashes|
+|15|.07|The vehicle drives straight following the central line and crashes at the first turn before the bridge|
+|13|.04| The vehicle crashes few seconds after the start and some strong oscillations|
+|13|.05| The vehicle accomplishes two tracks with the maximum oscillations around the central yellow line|
+|13|.06|The vehicle drives straight following the central line, runs with weak oscillations when crossing the bridge until the first turn and crashes there|
+|12|.04|The vehicle crashes few seconds after the start and some strong oscillations|
+|12|.06|The vehicle drives straight following the central line and crashes at the second turn after the bridge|
+|10|.1|The vehicle accomplishes several tracks with the minimum oscillations around the central yellow line|
+
+#### Conclusion
+After playing around with the length and duration hyperparameters, i noticed that best choice is N=10 and dt=.1 for the optimizer to calculate the correct trajectory
+
+### 2.Polynomial fitting
+
+The waypoint are first converted from global coordinates system to vehicle's one by translating the the global origin (X0g,Y0g) to vehicle origin (X0v,Y0v) and rotating the vehicle origin by psi. The MapToCarTransform method in main.cpp implements the transform matrix (translation and rotation). The transform process is used to provide the polynomial expression an initial value (X0v=0) and therefore eases the fitting process. The result of the polynomial fitting are coefficients which will serve to calculate the cross-track error CTE.
+
+### 3.Vehicle Latency
+
+The algorithm used to solve the vehicle latency problem treats the estimation of the vehicle's state 100ms into the future before calling the MPC.solve() function, using the vehicle kinematics equations. This can be done using the update equations and model error equations described in the lessons. In vehicle coordinates, the vehicle is at the origin and so px, py and psi are considered as zero and substituting these values into kinematic equations with dt=0.1 will give the state and errors 100ms into the future.
 
 
 
