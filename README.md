@@ -19,7 +19,7 @@ The purpose of this project is to implement an MPC Controller to provide an auto
     1.position (x,y)
     2.orientation (psi)
     3. velocity (v)
-and the waypoints (the desired trajectory). On the other side the MPC Controller processes the following steps :
+and the waypoints (the desired trajectory). On the other side the MPC Controller processes this data with the following steps :
 
     1.Receive and Transform the acquired state vector component position from the global system to local (vehicle) system
     2.Define the vehicle model
