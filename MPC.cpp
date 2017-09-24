@@ -9,7 +9,7 @@ using CppAD::AD;
 // Set the timestep length and duration
 // Currently tuned to predict 1 second worth
 
-size_t N = 10;
+const size_t N = 10;
 // This value assumes the model presented in the classroom is used.
 //
 // It was obtained by measuring the radius formed by running the vehicle in the
